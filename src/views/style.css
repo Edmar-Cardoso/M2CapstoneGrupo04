@@ -1,0 +1,213 @@
+html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li, a, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.625em;
+    align-items: center;
+}
+
+.imagemUsuario {
+    border: 2px solid #415AF3;
+    border-radius: 50%;
+    width: 3.125em;
+}
+
+.secaoUsuario {
+    display: flex;
+    background-color: #415AF3;
+    justify-content: space-around;
+    align-items: center;
+    height: 9.375em;
+}
+
+.secaoUsuario h3 {
+    color: #ffff;
+}
+
+.imagemDaSecaoDoUsuario {
+    border: 2px solid #ffff;
+    border-radius: 50%;
+    width: 5em;
+}
+
+main {
+    margin-top: 50px;
+}
+
+main div h4 {
+    font-size: 20px;
+    margin-left: 18px;
+}
+
+.ulFiltros {
+    display: flex;
+    margin-top: 28px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ulFiltros li h5 {
+    color: #343A40;
+    font-size: 14px;
+}
+
+.botaoCriar {
+    color: #ffff;
+    border: none;
+    border-radius: 4px;
+    width: 70px;
+    height: 30px;
+    background-color: #415AF3;
+    cursor: pointer;
+}
+
+.ulStatus {
+    margin-top: 10px;
+    align-items: center;
+}
+
+.ulStatus li {
+    display: flex;
+    justify-content: space-around;
+}
+
+.descricao {
+    display: none;
+}
+
+.categoria {
+    display: none;
+}
+
+.descricao2 {
+    display: none;
+}
+
+.categoria2 {
+    display: none;
+}
+
+.ulStatus li h5 {
+    color: #A1A1A1;
+    font-size: 15px;
+}
+
+.ulHabitos li {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #EBEBEB;
+    padding: 5px;
+}
+
+.ulHabitos li:hover {
+    background-color: #E9ECEF;
+}
+
+.ulHabitos li p {
+    font-size: 14px;
+}
+
+@media screen and (min-width: 500px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header figure {
+        margin-left: 25px;
+    }
+
+    .divImagemUsuario {
+        margin-right: 25px;
+    }
+
+    .secaoUsuario {
+        display: flex;
+        justify-content: start;
+    }
+
+    .secaoUsuario figure {
+        margin-left: 25px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        margin-top: 25px;
+    }
+
+    main .divTarefas {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ulFiltros {
+        margin-top: 0px;
+        margin-right: 15px;
+    }
+
+    .ulFiltros li {
+        padding: 15px;
+    }
+
+    .ulHabitos li {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .descricao {
+        display: flex;
+    }
+
+    .categoria {
+        display: flex;
+    }
+
+    .descricao2 {
+        display: flex;
+    }
+    
+    .categoria2 {
+        display: flex;
+    }
+
+    .secaoStatus-e-habitos {
+        border: 1px solid #EBEBEB;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header {
+        width: 1000px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+   main {
+    width: 1000px;
+    margin: 0 auto;
+   }
+}
+
+@media screen and (min-width: 1366px) {
+    .secaoUsuario figure {
+        margin-left: 200px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .secaoUsuario figure {
+        margin-left: 235px;
+    }
+}
