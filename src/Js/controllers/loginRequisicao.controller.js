@@ -14,7 +14,7 @@ export default class LoginRequisicao{
             .then(res => {
                 localStorage.setItem("@kenzie-habit:usuario", JSON.stringify(res.response))
                 localStorage.setItem("@kenzie-habit:token", JSON.stringify(res.token))
-
+                
                 return res
             
             })

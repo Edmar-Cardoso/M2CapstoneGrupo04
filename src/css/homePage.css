@@ -15,10 +15,15 @@ header {
     align-items: center;
 }
 
+.dropDown2 {
+    display: none;
+}
+
 .imagemUsuario {
     border: 2px solid #415AF3;
     border-radius: 50%;
     width: 3.125em;
+    cursor: pointer;
 }
 
 .secaoUsuario {
@@ -27,6 +32,7 @@ header {
     justify-content: space-around;
     align-items: center;
     height: 9.375em;
+    margin-top: 15px;
 }
 
 .secaoUsuario h3 {
@@ -37,6 +43,7 @@ header {
     border: 2px solid #ffff;
     border-radius: 50%;
     width: 5em;
+    cursor: pointer;
 }
 
 main {
@@ -232,6 +239,47 @@ main div h4 {
 
 .offModalCriar {
     display: none;
+}
+.dropDownDisplay {
+    display: block;
+    position: absolute;
+    background-color: #EBEBEB;
+    border-radius: 5px;
+    text-align: center;
+    width: 125px;
+    height: 100px;
+}
+
+.dropDownDisplay div h5 {
+    margin-left: 20px;
+}
+
+.dropDownDisplay div {
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.dropDownDisplay div img {
+    width: 10px;
+}
+
+.divTarefas2 {
+    margin-top: 80px;
+}
+
+.x {
+    margin-top: 5px;
+    margin-left: 107px;
+}
+
+.message {
+    display: none;
+}
+
+.message2 {
+    display: flex;
+
 }
 
 @media screen and (min-width: 500px) {
