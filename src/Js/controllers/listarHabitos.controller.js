@@ -18,6 +18,6 @@ class HabitosApi{
 
             habitos.append(listarHabitosHtml)
         });
-}
+    }
 }
 export default HabitosApi;
