@@ -398,11 +398,25 @@ main div h4 {
 .bodyModalEditar button:hover {
     opacity: 0.5;
 }
+
 .offModalEditar{
     display: none;
 }
+
 .editarBotao:hover{
     cursor: pointer;
+}
+
+.editarPerfilBotao {
+    border: none;
+    cursor: pointer;
+    margin-left: 13px;
+}
+
+.sairDoAppBotao {
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 @media screen and (min-width: 500px) {
