@@ -23,7 +23,6 @@ export default class editarDeletarHabitoRequisicao{
             headers: this.headers
         })
         .then(res => res.json())
-        .then(res => console.log(res))
         .catch(err => console.log(err))
     }
 }

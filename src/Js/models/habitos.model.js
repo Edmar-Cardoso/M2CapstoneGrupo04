@@ -25,6 +25,7 @@ listagemHabitos(){
     const EditarHabito     = document.createElement("button");
     
 
+
     Status.addEventListener("click", () => {
         if(this.habit_status === true){
             this.habit_status = false
@@ -32,9 +33,11 @@ listagemHabitos(){
             this.habit_status = true
         }
 
-        console.log(this.habit_status)
     })
 
+
+
+    li.id                      = this.habit_id
 
     Status.innerText           = this.habit_status;
     TituloHabito.innerText     = this.habit_title;

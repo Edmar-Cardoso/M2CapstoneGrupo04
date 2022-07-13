@@ -1,32 +1,53 @@
+import HabitosApi from "./listarHabitos.controller.js"
+import { MontandoModalCriarTarefa } from "./montandoModalCriarTarefa.controller.js"
+
 export class CriarTarefaRequisicao {
+    static funcaoChamada = false
+
     static realizandoCadastro() {
         const buttonCriarTarefa = document.querySelector(".buttonCriarTarefa")
         this.montandoModalSucess()
 
-        buttonCriarTarefa.addEventListener("click", async (event) => {
-            event.preventDefault()
-            const dadosDoUsuario = this.montandoDadosFetch()
-            const fetch = await this.realizandoFetch(dadosDoUsuario)
-            console.log(fetch)
-            if(fetch.habit_id) {
-                const modal = document.querySelector(".backgroundModalCriar")
-                modal.classList.add("offModalCriar")
+        
+        if(this.funcaoChamada === false) {
+            buttonCriarTarefa.addEventListener("click", async (event) => {
+                event.preventDefault()
+                console.log(buttonCriarTarefa)
+                const dadosDoUsuario = this.montandoDadosFetch()
+                console.log(dadosDoUsuario)
+                const fetch = await this.realizandoFetch(dadosDoUsuario)
+                console.log(fetch)
+                if(fetch.habit_id) {
+                    const modal = document.querySelector(".backgroundModalCriar")
+                    modal.classList.add("offModalCriar")
+    
+                    const modalSucesso = document.querySelector(".backgroundModalCriarSucesso")
+                    modalSucesso.classList.remove("offModalCriarSucess")
+    
+                    HabitosApi.listarHabitos()
+                    const tituloTarefa    = document.querySelector(".backgroundModalCriar .tituloCriadoDaTarefa")
+                    const descricaoTarefa = document.querySelector(".backgroundModalCriar .descricaoCriadaDaTarefa")
+                    const categoriaTarefa = document.querySelector(".backgroundModalCriar .categoriaSelecionadaDaTarefa")
 
-                const modalSucesso = document.querySelector(".backgroundModalCriarSucesso")
-                modalSucesso.classList.remove("offModalCriarSucess")
+                    tituloTarefa.value = ""
+                    descricaoTarefa.value = ""
+                    categoriaTarefa.value = ""
 
-                this.removendoModalSucesso()
-            }
-            else {
-
-            }
-        })
+                    this.removendoModalSucesso()
+                }
+                else {
+    
+                }
+            })
+        }
+        this.funcaoChamada = true
     }
 
     static montandoDadosFetch() {
-        const tituloTarefa = document.querySelector(".tituloCriadoDaTarefa").value
-        const descricaoTarefa = document.querySelector(".descricaoCriadaDaTarefa").value
-        const categoriaTarefa = document.querySelector(".categoriaSelecionadaDaTarefa").value
+
+        const tituloTarefa    = document.querySelector(".backgroundModalCriar .tituloCriadoDaTarefa").value
+        const descricaoTarefa = document.querySelector(".backgroundModalCriar .descricaoCriadaDaTarefa").value
+        const categoriaTarefa = document.querySelector(".backgroundModalCriar .categoriaSelecionadaDaTarefa").value
 
         return {
             habit_title: tituloTarefa,

@@ -59,23 +59,23 @@ export class MontandoModalCriarTarefa {
         optionDefault.innerText = "Selecionar Categoria"
 
         const optionCasa = document.createElement("option")
-        optionCasa.value = "Casa"
+        optionCasa.value = "casa"
         optionCasa.innerText = "Casa"
 
         const optionEstudo = document.createElement("option")
-        optionEstudo.value = "Estudo"
+        optionEstudo.value = "estudos"
         optionEstudo.innerText = "Estudo"
 
         const optionLazer = document.createElement("option")
-        optionLazer.value = "Lazer"
+        optionLazer.value = "lazer"
         optionLazer.innerText = "Lazer"
 
         const optionTrabalho = document.createElement("option")
-        optionTrabalho.value = "Trabalho"
+        optionTrabalho.value = "trabalho"
         optionTrabalho.innerText = "Trabalho"
 
         const optionSaude = document.createElement("option")
-        optionSaude.value = "Saude"
+        optionSaude.value = "saude"
         optionSaude.innerText = "Saude"
 
         const buttonCriarTarefa = document.createElement("button")
@@ -102,6 +102,7 @@ export class MontandoModalCriarTarefa {
 
             this.fechandoModalCriarTarefa()
             CriarTarefaRequisicao.realizandoCadastro()
+            console.log("oi")
         })
     }
 
