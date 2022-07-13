@@ -17,7 +17,7 @@ listagemHabitos(){
     const TituloHabito     = document.createElement("p");
     const DescricaoHabito  = document.createElement("p");
     const Categoriahabito  = document.createElement("p");
-    const EditarHabito     = document.createElement("p");
+    const EditarHabito     = document.createElement("button");
     
 
 
@@ -31,7 +31,7 @@ listagemHabitos(){
     TituloHabito.classList.add("titulo");
     DescricaoHabito.classList.add("descricao2");
     Categoriahabito.classList.add("categoria2");
-    EditarHabito.classList.add("editar2");
+    EditarHabito.classList.add("editar2", "editarBotao");
 
     
     li.append(Status, TituloHabito, DescricaoHabito, Categoriahabito, EditarHabito);
