@@ -7,10 +7,8 @@ import HabitosApi from "../controllers/listarHabitos.controller.js";
 import FiltrarTodos from "../controllers/filtros.controller.js";
 
 
+dadosUsuario.logoutUser()
 await FiltrarTodos.listagemDeTodos()
 await dadosUsuario.pegarDadosUsuario()
 await HabitosApi.listarHabitos()
 MontandoModalCriarTarefa.montandoDomModal()
-editarHabitoModal.editarModal()
-editarHabitoModal.editarHabito()
-editarHabitoModal.deletarHabito()

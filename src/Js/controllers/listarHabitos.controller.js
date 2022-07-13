@@ -1,5 +1,6 @@
 import Requisicao from "./habitosAPI.controller.js";
 import Habitos from "../models/habitos.model.js"; 
+import editarHabitoModal from "./modalEditarHabito.controller.js";
 
 
 class HabitosApi{
@@ -18,6 +19,7 @@ class HabitosApi{
 
             habitos.append(listarHabitosHtml)
         });
+    editarHabitoModal.editarModal()
 }
 }
 export default HabitosApi;
