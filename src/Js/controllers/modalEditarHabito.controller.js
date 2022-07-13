@@ -1,4 +1,5 @@
 import editarDeletarHabitoRequisicao from "./editarDeletarHabitoRequisicao.controller.js";
+import deletarHabitoModal from "./modalDeletarHabito.controller.js";
 
 export default class editarHabitoModal{
     static body = document.querySelector('body');
@@ -33,7 +34,6 @@ export default class editarHabitoModal{
         const editarBotoesSalvar        = document.createElement('button');
 
         editarBackground.className      = "backgroundModalEditar offModalEditar"
-        // Adicionar o editarModalCriar des
         editarContainer.className       = "containerModalEditar"
         editarTopoDiv.className         = "headerModalEditar"
         editarTopoFechar.className      = "fecharModalEditar"
@@ -41,6 +41,7 @@ export default class editarHabitoModal{
         editarTituloInput.className     = "tituloCriadoDaTarefa"
         editarDescricaoInput.className  = "descricaoCriadaDaTarefa"
         editarCategoriaSelect.className = "categoriaSelecionadaDaTarefa"
+        editarBotoesDiv.className       = "editarBotoesDiv"
         editarBotoesExcluir.className   = "editarBotoesExcluir"
         editarBotoesSalvar.className    = "editarBotoesSalvar"
 
@@ -89,12 +90,21 @@ export default class editarHabitoModal{
     }
     
     static abrirEditarModal(){
-        const editarBotao = document.querySelector('.editarBotao');
+        const editarBotao = document.querySelectorAll('.editarBotao');
+
+        for(let i=0; i<editarBotao.length; i++){
+            editarBotao[i].addEventListener('click', (e) => {
+                const modalEditar = document.querySelector('.backgroundModalEditar');
+                modalEditar.classList.remove("offModalEditar")
+    
+                const habitos_id = e.target.closest('li').id
+                this.editarHabito(habitos_id)
+                this.deletarHabito(habitos_id)
+                
+                deletarHabitoModal.deletarModal()
+            })
+        }
         
-        editarBotao.addEventListener('click', () => {
-            const modalEditar = document.querySelector('.backgroundModalEditar');
-            modalEditar.classList.remove("offModalEditar")
-        })
         
         this.fecharModal()
     }
@@ -108,33 +118,34 @@ export default class editarHabitoModal{
         })
     }
 
-    static editarHabito(){
+    static editarHabito(habitos_id){
         const editarBotoesSalvar = document.querySelector('.editarBotoesSalvar');
 
         editarBotoesSalvar.addEventListener('click', async e => {
             e.preventDefault()
             const dados = {}
             const valoresForm = [...e.target.form]
-            // const habitos_id = e.target.closest("li").id
-            const habitos_id = 409
-            console.log(valoresForm)
             valoresForm.forEach(valor => {
                 if(valor.value !== ""){
                     dados[valor.name] = valor.value
-                    console.log(dados)
                 }
             })
             await editarDeletarHabitoRequisicao.editar(habitos_id, dados)
         })
     }
     
-    static deletarHabito(){
+    static deletarHabito(habitos_id){
         const editarBotoesExcluir = document.querySelector('.editarBotoesExcluir');
 
-        editarBotoesExcluir.addEventListener('click', (e) =>{
+        editarBotoesExcluir.addEventListener('click', e =>{
             e.preventDefault();
             const modalEditar = document.querySelector('.backgroundModalEditar');
             modalEditar.classList.add("offModalEditar")
+
+            const modalDeletar = document.querySelector('.backgroundModalDeletar');
+            modalDeletar.classList.remove("offModalDeletar")
+
+            deletarHabitoModal.deletarHabito(habitos_id)
         })
     }
 }
