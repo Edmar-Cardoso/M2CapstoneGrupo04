@@ -11,6 +11,16 @@ export default class dadosUsuario {
         imagemUsuario.src = this.usuario.usr_image
         imagemUsuarioEdit.src = this.usuario.usr_image
     } 
+
+    static logoutUser () {
+        const botaoLogout = document.querySelector(".sairDoAppBotao")
+    
+        botaoLogout.addEventListener("click", () => {
+            localStorage.removeItem("@kenzie-habit:usuario")
+            localStorage.removeItem("@kenzie-habit:token")
+            window.location.href = "/index.html"
+        })
+    }
 }
 
 const dropDown = () => {
@@ -35,6 +45,7 @@ const fechaDropDown = (e) => {
 const x = document.querySelector(".x")
 
 x.addEventListener("click", fechaDropDown)
+
 
 const imagemUsuario = document.querySelector(".imagemUsuario")
 imagemUsuario.addEventListener("click", dropDown)

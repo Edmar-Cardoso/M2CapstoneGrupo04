@@ -1,4 +1,5 @@
 import HabitosApi from "./listarHabitos.controller.js";
+import editarHabitoModal from "./modalEditarHabito.controller.js";
 
 const botao = document.querySelector(".botaoTodos")
 
