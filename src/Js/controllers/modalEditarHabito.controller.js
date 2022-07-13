@@ -90,18 +90,21 @@ export default class editarHabitoModal{
     }
     
     static abrirEditarModal(){
-        const editarBotao = document.querySelector('.editarBotao');
-        
-        editarBotao.addEventListener('click', (e) => {
-            const modalEditar = document.querySelector('.backgroundModalEditar');
-            modalEditar.classList.remove("offModalEditar")
+        const editarBotao = document.querySelectorAll('.editarBotao');
 
-            const habitos_id = e.target.closest('li').id
-            this.editarHabito(habitos_id)
-            this.deletarHabito(habitos_id)
-            
-            deletarHabitoModal.deletarModal()
-        })
+        for(let i=0; i<editarBotao.length; i++){
+            editarBotao[i].addEventListener('click', (e) => {
+                const modalEditar = document.querySelector('.backgroundModalEditar');
+                modalEditar.classList.remove("offModalEditar")
+    
+                const habitos_id = e.target.closest('li').id
+                this.editarHabito(habitos_id)
+                this.deletarHabito(habitos_id)
+                
+                deletarHabitoModal.deletarModal()
+            })
+        }
+        
         
         this.fecharModal()
     }
