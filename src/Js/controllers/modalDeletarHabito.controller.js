@@ -61,6 +61,7 @@ export default class deletarHabitoModal{
             await editarDeletarHabitoRequisicao.deletar(habitos_id)
             const modalDeletar = document.querySelector('.backgroundModalDeletar')
             modalDeletar.classList.add('offModalDeletar')
+            window.location.reload()
         })
     }
 }
