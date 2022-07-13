@@ -158,7 +158,7 @@ main div h4 {
 
 .headerModalCriar button {
     background-color: #fff;
-    color: #ADB5BD;
+    color: black;
     font-weight: 600;
     font-size: 20px;
     border: none;
@@ -166,7 +166,7 @@ main div h4 {
 }
 
 .headerModalCriar button:hover {
-    color: black;
+    color: #ADB5BD;
 }
 
 .bodyModalCriar {

@@ -3,7 +3,6 @@ import { CriarTarefaRequisicao } from "./CriarTarefaRequisicao.controller.js"
 export class MontandoModalCriarTarefa {
     static montandoDomModal() {
         const body = document.querySelector("body")
-        console.log(body)
 
         const divBackground = document.createElement("div")
         divBackground.classList.add("backgroundModalCriar")
