@@ -80,11 +80,13 @@ main div h4 {
 .ulStatus {
     margin-top: 10px;
     align-items: center;
+    
 }
 
 .ulStatus li {
     display: flex;
     justify-content: space-around;
+    
 }
 
 .descricao {
@@ -108,6 +110,22 @@ main div h4 {
     font-size: 15px;
 }
 
+.statusCabecalho{
+    margin-left: -12px;
+}
+
+.tituloCabecalho{
+    
+}
+
+.descricao{
+    margin-left: 140px;
+}
+
+.categoria{
+    margin-left: 42px;
+}
+
 .ulHabitos li {
     display: flex;
     justify-content: space-around;
@@ -121,6 +139,24 @@ main div h4 {
 
 .ulHabitos li p {
     font-size: 14px;
+}
+
+.botaoCarregarMais {
+    display: flex;        
+    justify-content: center;
+    align-items: center;
+    padding: 12px 28px;
+    gap: 10px;
+    width: 152px;
+    height: 32px;
+    background: #415AF3;
+    border: 2px solid #415AF3;
+    border-radius: 4px;
+    color: white;
+    margin-top: 20px;
+    margin-left: 40%;
+    cursor: pointer;
+
 }
 
 /*Modal criar tarefa*/
@@ -281,6 +317,19 @@ main div h4 {
     display: flex;
 
 }
+
+.botaoTodos {
+    cursor: pointer;
+}
+
+.titulo {
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+
 .backgroundModalEditar{
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
@@ -347,10 +396,13 @@ main div h4 {
     .ulHabitos li {
         display: flex;
         justify-content: space-around;
+        
     }
 
     .descricao {
         display: flex;
+        
+        
     }
 
     .categoria {
@@ -359,14 +411,52 @@ main div h4 {
 
     .descricao2 {
         display: flex;
+        width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        
     }
     
     .categoria2 {
         display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 12px;
+        gap: 10px;
+        width: 88px;
+        height: 24px;
+        background: #D7E4FB;
+        border-radius: 4px;
+        border: none;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        color: #415AF3;
+
     }
 
     .secaoStatus-e-habitos {
         border: 1px solid #EBEBEB;
+    }
+
+    .botaoCarregarMais {
+        display: flex;        
+        justify-content: center;
+        align-items: center;
+        padding: 12px 28px;
+        gap: 10px;
+        width: 152px;
+        height: 32px;
+        background: #415AF3;
+        border: 2px solid #415AF3;
+        border-radius: 4px;
+        color: white;
+        margin-top: 20px;
+        margin-left: 40%; 
+        cursor: pointer;
+
     }
 }
 
@@ -393,4 +483,13 @@ main div h4 {
     .secaoUsuario figure {
         margin-left: 235px;
     }
+}
+
+.editar2{
+    border: none;
+    background-color: white;
+    color: gray;
+    font-weight: bold;
+    
+
 }
