@@ -10,4 +10,4 @@ await HabitosApi.listarHabitos()
 MontandoModalCriarTarefa.montandoDomModal()
 editarHabitoModal.editarModal()
 editarHabitoModal.editarHabito()
-
+editarHabitoModal.deletarHabito()

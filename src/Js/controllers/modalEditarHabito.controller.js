@@ -34,13 +34,14 @@ export default class editarHabitoModal{
 
         editarBackground.className      = "backgroundModalEditar offModalEditar"
         // Adicionar o editarModalCriar des
-        editarContainer.className       = "containerModalCriar containerModalEditar"
-        editarTopoDiv.className         = "headerModalCriar"
-        editarTopoFechar.className      = "fecharModalEditar fecharModalCriar"
-        editarFormDiv.className         = "bodyModalCriar"
+        editarContainer.className       = "containerModalEditar"
+        editarTopoDiv.className         = "headerModalEditar"
+        editarTopoFechar.className      = "fecharModalEditar"
+        editarFormDiv.className         = "bodyModalEditar"
         editarTituloInput.className     = "tituloCriadoDaTarefa"
         editarDescricaoInput.className  = "descricaoCriadaDaTarefa"
         editarCategoriaSelect.className = "categoriaSelecionadaDaTarefa"
+        editarBotoesExcluir.className   = "editarBotoesExcluir"
         editarBotoesSalvar.className    = "editarBotoesSalvar"
 
         editarTopoTitulo.innerText          = "Editar hábito"
@@ -124,6 +125,16 @@ export default class editarHabitoModal{
                 }
             })
             await editarDeletarHabitoRequisicao.editar(habitos_id, dados)
+        })
+    }
+    
+    static deletarHabito(){
+        const editarBotoesExcluir = document.querySelector('.editarBotoesExcluir');
+
+        editarBotoesExcluir.addEventListener('click', (e) =>{
+            e.preventDefault();
+            const modalEditar = document.querySelector('.backgroundModalEditar');
+            modalEditar.classList.add("offModalEditar")
         })
     }
 }
