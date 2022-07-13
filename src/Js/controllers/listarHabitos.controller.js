@@ -19,7 +19,9 @@ class HabitosApi{
 
             habitos.append(listarHabitosHtml)
         });
+
     editarHabitoModal.editarModal()
 }
+
 }
 export default HabitosApi;
