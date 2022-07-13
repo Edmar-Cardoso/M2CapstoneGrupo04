@@ -6,9 +6,8 @@ import Requisicao from "../controllers/habitosAPI.controller.js";
 import HabitosApi from "../controllers/listarHabitos.controller.js";
 
 await dadosUsuario.pegarDadosUsuario()
-editarHabitoModal.editarModal()
-editarHabitoModal.editarHabito()
 await HabitosApi.listarHabitos()
 MontandoModalCriarTarefa.montandoDomModal()
-
+editarHabitoModal.editarModal()
+editarHabitoModal.editarHabito()
 
