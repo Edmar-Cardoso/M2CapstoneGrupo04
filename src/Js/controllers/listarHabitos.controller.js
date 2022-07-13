@@ -11,8 +11,6 @@ class HabitosApi{
 
         const habitosDoApi = await Requisicao.puxarDados();
 
-        
-
         habitosDoApi.forEach((habito) => {
             const habitosFinal  = new Habitos(habito.habit_id, habito.habit_title, habito.habit_description, habito.habit_category, habito.habit_status)
 
@@ -20,8 +18,6 @@ class HabitosApi{
 
             habitos.append(listarHabitosHtml)
         });
-
-        
 }
 }
 export default HabitosApi;

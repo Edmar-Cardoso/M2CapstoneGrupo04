@@ -36,5 +36,5 @@ const x = document.querySelector(".x")
 
 x.addEventListener("click", fechaDropDown)
 
-const imagemUsuario = document.querySelector(".imagemDaSecaoDoUsuario")
+const imagemUsuario = document.querySelector(".imagemUsuario")
 imagemUsuario.addEventListener("click", dropDown)
