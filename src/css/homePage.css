@@ -123,6 +123,123 @@ main div h4 {
     font-size: 14px;
 }
 
+/*Modal criar tarefa*/
+
+.backgroundModalCriar {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerModalCriar {
+    background-color: #fff;
+    width: 90%;
+    height: 385px;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.headerModalCriar {
+    height: 40px;
+    padding: 5px 15px 5px 15px;
+    margin: 10px 5px 20px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.headerModalCriar button {
+    background-color: #fff;
+    color: #ADB5BD;
+    font-weight: 600;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.headerModalCriar button:hover {
+    color: black;
+}
+
+.bodyModalCriar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.bodyModalCriar form {
+    width: 92%;
+    margin: 0 auto;
+}
+
+.bodyModalCriar label{
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.bodyModalCriar input {
+    background-color: #F1F3F5;
+    padding: 0px;
+    padding-left: 8px;
+    border: none;
+    width: 100%;
+    height: 42px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.bodyModalCriar input::placeholder {
+    color: #343A40;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.bodyModalCriar input:invalid {
+    border: 1px solid #E64445;
+}
+
+.bodyModalCriar select {
+    background-color: #F1F3F5;
+    color: #343A40;
+    width: 100%;
+    height: 38px;
+    padding: 0px;
+    border: none;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.bodyModalCriar button {
+    background-color: #415AF3;
+    color: #fff;
+    width: 99%;
+    height: 38px;
+    padding: 0px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 4.5px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.bodyModalCriar button:hover {
+    opacity: 0.5;
+}
+
+.offModalCriar {
+    display: none;
+}
 .dropDownDisplay {
     display: block;
     position: absolute;
@@ -162,6 +279,7 @@ main div h4 {
 
 .message2 {
     display: flex;
+
 }
 
 @media screen and (min-width: 500px) {
