@@ -20,7 +20,7 @@ listagemHabitos(){
     const EditarHabito     = document.createElement("button");
     
 
-
+    li.id                      = this.habit_id
     Status.innerText           = this.habit_status;
     TituloHabito.innerText     = this.habit_title;
     DescricaoHabito.innerText  = this.habit_description;
