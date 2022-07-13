@@ -7,7 +7,7 @@ html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li
     font-family: 'Roboto', sans-serif;
 }
 
-header {
+header{
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -240,23 +240,29 @@ main div h4 {
 .offModalCriar {
     display: none;
 }
+
 .dropDownDisplay {
     display: block;
     position: absolute;
+    right: 0;
+    height: 71px;
+    margin-right: 40px;
     background-color: #EBEBEB;
     border-radius: 5px;
-    text-align: center;
-    width: 125px;
-    height: 100px;
+    align-items: center;
 }
 
 .dropDownDisplay div h5 {
     margin-left: 20px;
 }
 
+.dropDownDisplay div .sairDoApp {
+    margin-left: 8px;
+}
+
 .dropDownDisplay div {
     display: flex;
-    margin-top: 15px;
+    margin-top: 6px;
     justify-content: center;
 }
 
@@ -279,7 +285,11 @@ main div h4 {
 
 .message2 {
     display: flex;
+    
+}
 
+.botaoTodos {
+    cursor: pointer;
 }
 
 @media screen and (min-width: 500px) {
@@ -306,6 +316,7 @@ main div h4 {
         margin-right: 20px;
     }
 }
+
 
 @media screen and (min-width: 768px) {
     main {
@@ -366,14 +377,32 @@ main div h4 {
    }
 }
 
+@media screen and (min-width: 1180px) {
+    .dropDownDisplay {
+        margin-right: 150px;
+    }
+}
+
 @media screen and (min-width: 1366px) {
+    .dropDownDisplay {
+        margin-right: 235px;
+    }
+
     .secaoUsuario figure {
         margin-left: 200px;
     }
 }
 
 @media screen and (min-width: 1440px) {
+    .dropDownDisplay {
+        margin-right: 17.500em;
+    }
+
+    .divTarefas2 {
+        margin-top: 3.125em;
+    }
+
     .secaoUsuario figure {
-        margin-left: 235px;
+        margin-left: 14.688em;
     }
 }
