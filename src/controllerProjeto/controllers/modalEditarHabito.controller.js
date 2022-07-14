@@ -105,7 +105,8 @@ export default class editarHabitoModal{
                 const modalEditar = document.querySelector('.backgroundModalEditar');
                 modalEditar.classList.add("offModalEditar")
     
-                const habitoId = e.target.closest('li').id
+                const habitoId = e.target.closest('li').id 
+                
                 const habitoLista = document.getElementById(habitoId)
 
                 const habitoListaTitulo = habitoLista.children[1].innerHTML
