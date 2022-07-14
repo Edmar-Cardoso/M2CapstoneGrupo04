@@ -102,7 +102,7 @@ export class MontandoModalCriarTarefa {
 
             this.fechandoModalCriarTarefa()
             CriarTarefaRequisicao.realizandoCadastro()
-            console.log("oi")
+            
         })
     }
 
