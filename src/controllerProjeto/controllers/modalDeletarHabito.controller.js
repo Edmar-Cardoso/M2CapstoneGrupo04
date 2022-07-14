@@ -71,18 +71,17 @@ export default class deletarHabitoModal{
         })
     }
 
-    static deletarHabito(habitos_id){
+    static deletarHabito(habitoId){
         const botaoDeletar = document.querySelector('.botaoExcluir');
-
+        
         botaoDeletar.addEventListener('click', async e => {
             e.preventDefault()
-            const fetch = await editarDeletarHabitoRequisicao.deletar(habitos_id)
-            console.log(fetch)
+            
             const modalDeletar = document.querySelector('.backgroundModalDeletar')
             modalDeletar.classList.remove('offModalDeletar')
-            if(fetch.message === 'hábito deletado com sucesso'){
-                HabitosApi.listarHabitos()
-            }
+            await editarDeletarHabitoRequisicao.deletar(habitoId)
+
+            HabitosApi.listarHabitos()
         })
     }
 }

@@ -119,7 +119,6 @@ export default class editarHabitoModal{
                 this.editarHabito(habitoId)
                 this.deletarHabito(habitoId)
                 
-                deletarHabitoModal.deletarModal()
             })
         }
         
@@ -156,12 +155,12 @@ export default class editarHabitoModal{
             editarBotoesSalvar.addEventListener('click', async e => {
                 e.preventDefault()
                 const dados = this.editarHabitoDados()
-                console.log(await editarDeletarHabitoRequisicao.editar(habitoId, dados))
+                
                 const fetch = await editarDeletarHabitoRequisicao.editar(habitoId, dados)
                 this.montandoModalSucess()
-                console.log(fetch.habit_id)
+                
                 if(fetch.habit_id){
-                    console.log(fetch.habit_id)
+                    
                     const modalEditar = document.querySelector('.backgroundModalEditar')
                     modalEditar.classList.remove('offModalEditar')
 
@@ -193,8 +192,6 @@ export default class editarHabitoModal{
                         editarCategoria.style.border = "red 1px solid"
                     }
                 }
-    
-                HabitosApi.listarHabitos()
             })
         }
 
@@ -251,7 +248,7 @@ export default class editarHabitoModal{
 
         editarBotoesExcluir.addEventListener('click', e =>{
             e.preventDefault();
-            console.log('tste')
+            
             const modalEditar = document.querySelector('.backgroundModalEditar')
             modalEditar.classList.remove('offModalEditar')
 
