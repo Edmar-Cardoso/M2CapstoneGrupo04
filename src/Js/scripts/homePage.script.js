@@ -9,7 +9,6 @@ import {MontandoModalEditarPerfil} from "../controllers/montandoModalEditarPerfi
 
 
 dadosUsuario.logoutUser()
-await FiltrarTodos.listagemDeTodos()
 await dadosUsuario.pegarDadosUsuario()
 await HabitosApi.listarHabitos()
 MontandoModalCriarTarefa.montandoDomModal()

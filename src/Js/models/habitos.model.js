@@ -1,3 +1,5 @@
+import Requisicao from "../controllers/habitosAPI.controller.js";
+
 class Habitos{
     constructor(habit_id, habit_title, habit_description, habit_category, habit_status){
         this.habit_id           = habit_id;
@@ -26,13 +28,9 @@ listagemHabitos(){
     
 
 
-    Status.addEventListener("click", () => {
-        if(this.habit_status === true){
-            this.habit_status = false
-        }else {
-            this.habit_status = true
-        }
-
+    Status.addEventListener("click", (e) => {
+        const habitos = e.target.closest("li").id
+        Requisicao.checarStatus(habitos)
     })
 
 
