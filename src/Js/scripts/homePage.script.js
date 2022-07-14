@@ -8,7 +8,6 @@ import FiltrarTodos from "../controllers/filtros.controller.js";
 
 
 dadosUsuario.logoutUser()
-await FiltrarTodos.listagemDeTodos()
 await dadosUsuario.pegarDadosUsuario()
 await HabitosApi.listarHabitos()
 MontandoModalCriarTarefa.montandoDomModal()
