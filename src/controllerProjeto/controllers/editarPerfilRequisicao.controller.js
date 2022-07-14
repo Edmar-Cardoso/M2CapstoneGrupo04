@@ -15,12 +15,23 @@ export class EditarPerfilRequisicao {
 
                 if(novoNome !== "" && novaFoto !== "") {
                     const fetch = await this.realizandoFetch(dadosUsuario)
-                    
-                    localStorage.removeItem("@kenzie-habit:usuario")
-                    localStorage.setItem("@kenzie-habit:usuario", JSON.stringify(fetch))
+                    console.log(fetch)
+                    if(fetch.message === "favor inserir um link de imagem válido no campo usr_image") {
+                        const inputFoto = document.querySelector(".novaFoto")
+                        inputFoto.style.border = "red 1px solid"
+                    }
+                    else {
+                        const inputFoto = document.querySelector(".novaFoto")
+                        inputFoto.style.border = "none"
+
+                        localStorage.removeItem("@kenzie-habit:usuario")
+                        localStorage.setItem("@kenzie-habit:usuario", JSON.stringify(fetch))
 
                     
-                    document.location.reload()
+                        document.location.reload()
+                    }
+                    
+                    
                 }  
             })
         }
