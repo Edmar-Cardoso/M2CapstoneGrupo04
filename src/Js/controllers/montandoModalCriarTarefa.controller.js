@@ -64,7 +64,7 @@ export class MontandoModalCriarTarefa {
 
         const optionEstudo = document.createElement("option")
         optionEstudo.value = "estudos"
-        optionEstudo.innerText = "Estudo"
+        optionEstudo.innerText = "Estudos"
 
         const optionLazer = document.createElement("option")
         optionLazer.value = "lazer"
