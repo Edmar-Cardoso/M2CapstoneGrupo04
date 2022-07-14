@@ -205,14 +205,12 @@ main div h4 {
     border-radius: 4px;
     color: white;
     margin-top: 20px;
-    margin-left: 40%;
+    margin-left: 26%;
     cursor: pointer;
 
 }
 
-.secaoStatus-e-habitos{
-    min-height: 550px;
-}
+
 
 /*Modal criar tarefa*/
 
@@ -737,6 +735,24 @@ main div h4 {
     pointer-events: auto;
 }
 
+.botaoConcluidos{
+    cursor: pointer;
+}
+.titulo2 {
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: line-through;
+}
+.descricaoTeste {
+    display: flex;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: line-through;
+}
 @media screen and (min-width: 500px) {
     header {
         display: flex;
@@ -844,11 +860,12 @@ main div h4 {
         border-radius: 4px;
         color: white;
         margin-top: 20px;
-        margin-left: 40%; 
+        margin-left: 41%; 
         cursor: pointer;
 
     }
 }
+
 
 @media screen and (min-width: 1024px) {
     header {
@@ -861,6 +878,22 @@ main div h4 {
     width: 1000px;
     margin: 0 auto;
    }
+}
+
+@media screen and (min-width: 375px) {
+    .botaoCarregarMais {
+        margin-left: 30%;
+    }
+}
+@media screen and (min-width: 425px) {
+    .botaoCarregarMais{
+        margin-left: 32%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .botaoCarregarMais{
+        margin-left: 40%;
+    }
 }
 
 @media screen and (min-width: 1180px) {

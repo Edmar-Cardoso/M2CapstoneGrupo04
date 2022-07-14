@@ -33,6 +33,7 @@ class FiltrarTodos {
           const listagemHabitos = teste3.listagemHabitos()
           this.habitos.append(listagemHabitos)
         })
+        editarHabitoModal.abrirEditarModal()
     }
 }
 

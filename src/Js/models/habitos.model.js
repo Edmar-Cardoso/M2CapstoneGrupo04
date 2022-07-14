@@ -31,6 +31,9 @@ listagemHabitos(){
     Status.addEventListener("click", (e) => {
         const habitos = e.target.closest("li").id
         Requisicao.checarStatus(habitos)
+
+        TituloHabito.className = "titulo2";
+        DescricaoHabito.className = "descricaoTeste"
     })
 
 
