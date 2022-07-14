@@ -14,7 +14,11 @@ export default class funcaoLogin{
                 }
             })
             await LoginRequisicao.login(dados)
-            window.location.href = "./src/views/homePage.views.html"
+
+            document.body.classList.add("fadeout");
+            window.setTimeout(() => {
+                window.location.assign("./src/views/homePage.views.html")
+            }, 2000)
         })
     }
 }
