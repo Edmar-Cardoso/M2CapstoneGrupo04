@@ -34,7 +34,7 @@ export default class editarHabitoModal{
         const editarBotoesExcluir       = document.createElement('button');
         const editarBotoesSalvar        = document.createElement('button');
 
-        editarBackground.className      = "backgroundModalEditar offModalEditar"
+        editarBackground.className      = "backgroundModalEditar"
         editarContainer.className       = "containerModalEditar"
         editarTopoDiv.className         = "headerModalEditar"
         editarTopoFechar.className      = "fecharModalEditar"
@@ -96,7 +96,7 @@ export default class editarHabitoModal{
         for(let i=0; i<editarBotao.length; i++){
             editarBotao[i].addEventListener('click', (e) => {
                 const modalEditar = document.querySelector('.backgroundModalEditar');
-                modalEditar.classList.remove("offModalEditar")
+                modalEditar.classList.add("offModalEditar")
     
                 const habitos_id = e.target.closest('li').id
                 this.editarHabito(habitos_id)
@@ -115,7 +115,7 @@ export default class editarHabitoModal{
 
         fecharModal.addEventListener('click', () => {
             const modalEditar = document.querySelector('.backgroundModalEditar')
-            modalEditar.classList.add('offModalEditar')
+            modalEditar.classList.remove('offModalEditar')
         })
     }
 

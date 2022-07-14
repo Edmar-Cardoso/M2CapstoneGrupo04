@@ -387,6 +387,9 @@ main div h4 {
     display:flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s;
 }
 .containerModalEditar{
     background-color: #fff;
@@ -505,7 +508,8 @@ main div h4 {
 }
 
 .offModalEditar{
-    display: none;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 
@@ -530,6 +534,10 @@ main div h4 {
     display:flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: 1.3s;
+    transition: opacity 1.5s;
 }
 .containerModalDeletar{
     background-color: #fff;
@@ -612,7 +620,8 @@ main div h4 {
     background-color: #F03839;
 }
 .offModalDeletar{
-    display: none;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .x:hover{
