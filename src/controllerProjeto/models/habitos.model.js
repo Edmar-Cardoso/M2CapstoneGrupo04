@@ -20,6 +20,8 @@ listagemHabitos(){
     Status.id = "myCheck"
     Status.value = `${this.habit_status}`
 
+    
+
 
     const TituloHabito     = document.createElement("p");
     const DescricaoHabito  = document.createElement("p");
@@ -27,6 +29,15 @@ listagemHabitos(){
     const EditarHabito     = document.createElement("button");
     
 
+    if(this.habit_status === true){
+        TituloHabito.className = "titulo2";
+        DescricaoHabito.className = "descricaoTeste"
+        li.style.backgroundColor = "#E9ECEF"            
+        Status.checked = true
+    }
+
+   
+   
 
     Status.addEventListener("click", (e) => {
         const habitos = e.target.closest("li").id
@@ -34,9 +45,14 @@ listagemHabitos(){
 
         TituloHabito.className = "titulo2";
         DescricaoHabito.className = "descricaoTeste"
+        li.style.backgroundColor = "#E9ECEF"
+            
+        Status.checked = true
+        
     })
 
 
+    
 
     li.id                      = this.habit_id
 
@@ -51,6 +67,7 @@ listagemHabitos(){
     DescricaoHabito.classList.add("descricao2");
     Categoriahabito.classList.add("categoria2");
     EditarHabito.classList.add("editar2", "editarBotao");
+    li.classList.add("listaHabitos")
 
     
     li.append(Status, TituloHabito, DescricaoHabito, Categoriahabito, EditarHabito);
