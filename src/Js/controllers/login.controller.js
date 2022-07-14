@@ -13,8 +13,9 @@ export default class funcaoLogin{
                     dados[input.name] = input.value;
                 }
             })
+
             const fetch = await LoginRequisicao.login(dados)
-            console.log(fetch)
+
             if(fetch.response) {
                 const usuario = document.querySelector(".inputUsuario")
                 const senha   = document.querySelector(".inputSenha")
@@ -22,7 +23,10 @@ export default class funcaoLogin{
                 usuario.style.border = "none"
                 senha.style.border = "none"
 
-                window.location.href = "./src/views/homePage.views.html"
+                document.body.classList.add("fadeout");
+                window.setTimeout(() => {
+                  window.location.assign("./src/views/homePage.views.html")
+                }, 2000)
             }
             else {
                 const usuario = document.querySelector(".inputUsuario")
@@ -36,8 +40,8 @@ export default class funcaoLogin{
                     senha.style.border = "red 1px solid"
                     usuario.style.border = "none"
                 }
-            }
-            
+            }       
+
         })
     }
 }

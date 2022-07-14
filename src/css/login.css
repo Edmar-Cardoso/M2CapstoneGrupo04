@@ -90,7 +90,13 @@
 .loginEntrar:hover{
     cursor: pointer;
 }
-    
+body{
+    transition:opacity 2000ms;
+    opacity:1;
+}
+body.fadeout{
+    opacity:0;
+}
 @media screen and (min-width: 768px){
     .loginContainer{
         width: 90%;
