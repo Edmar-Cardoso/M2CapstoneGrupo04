@@ -8,7 +8,6 @@ export class MontandoModalEditarPerfil {
 
         const divBackground = document.createElement("div")
         divBackground.classList.add("backgroundModalEditarPerfil")
-        divBackground.classList.add("offModalEditarPerfil")
 
         const divContainer = document.createElement("div")
         divContainer.classList.add("containerModalEditarPerfil")
@@ -70,7 +69,7 @@ export class MontandoModalEditarPerfil {
 
         button.addEventListener("click", () => {
             const modal = document.querySelector(".backgroundModalEditarPerfil")
-            modal.classList.remove("offModalEditarPerfil")
+            modal.classList.add("offModalEditarPerfil")
 
             this.fechandoModalEditarPerfil()
             EditarPerfilRequisicao.editandoPerfil()
@@ -82,7 +81,7 @@ export class MontandoModalEditarPerfil {
 
         buttonFechar.addEventListener("click", () => {
             const modal = document.querySelector(".backgroundModalEditarPerfil")
-            modal.classList.add("offModalEditarPerfil")
+            modal.classList.remove("offModalEditarPerfil")
         })
     }
 }

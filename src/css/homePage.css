@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
 html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li, a, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    min-height: 101vh;
 }
 
 header{
@@ -16,7 +22,53 @@ header{
 }
 
 .dropDown2 {
-    display: none;
+    position: absolute;
+    right: 0;
+    height: 71px;
+    margin-right: 40px;
+    background-color: #fff;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.3);;
+    border-radius: 5px;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s;
+}
+
+.dropDown2 div h5 {
+    margin-left: 20px;
+}
+
+.dropDown2 div .sairDoApp {
+    margin-left: 8px;
+}
+
+.dropDown2 div {
+    display: flex;
+    margin-top: 4px;
+    justify-content: center;
+    transition: 0.1s;
+}
+
+.dropDown2 div:hover {
+    background-color: #F2F4F6;
+}
+
+.dropDown2 div img {
+    width: 15px;
+}
+
+.imgSeta {
+    margin-right: 5px;
+}
+
+.dropDown2 div button{
+    background-color: #fff;
+    
+}
+
+.dropDown2 div button:hover {
+    background-color: #F2F4F6;
 }
 
 .imagemUsuario {
@@ -43,7 +95,6 @@ header{
     border: 2px solid #ffff;
     border-radius: 50%;
     width: 5em;
-    cursor: pointer;
 }
 
 main {
@@ -159,10 +210,14 @@ main div h4 {
 
 }
 
+.secaoStatus-e-habitos{
+    min-height: 550px;
+}
+
 /*Modal criar tarefa*/
 
 .backgroundModalCriar {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -171,6 +226,9 @@ main div h4 {
     display:flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s;
 }
 
 .containerModalCriar {
@@ -240,7 +298,7 @@ main div h4 {
 }
 
 .bodyModalCriar input:invalid {
-    border: 1px solid #E64445;
+    border: 1px solid red;
 }
 
 .bodyModalCriar select {
@@ -274,45 +332,24 @@ main div h4 {
 }
 
 .offModalCriar {
-    display: none;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .dropDownDisplay {
-    display: block;
-    position: absolute;
-    right: 0;
-    height: 71px;
-    margin-right: 40px;
-    background-color: #EBEBEB;
-    border-radius: 5px;
-    align-items: center;
-}
-
-.dropDownDisplay div h5 {
-    margin-left: 20px;
-}
-
-.dropDownDisplay div .sairDoApp {
-    margin-left: 8px;
-}
-
-.dropDownDisplay div {
-    display: flex;
-    margin-top: 6px;
-    justify-content: center;
-}
-
-.dropDownDisplay div img {
-    width: 10px;
-}
-
-.divTarefas2 {
-    margin-top: 80px;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .x {
     margin-top: 5px;
     margin-left: 107px;
+    cursor: pointer;
+    transition: opacity 0.8s;
+}
+
+.x:hover {
+    opacity: 0.6;
 }
 
 .message {
@@ -471,9 +508,6 @@ main div h4 {
     display: none;
 }
 
-.editarBotao:hover{
-    cursor: pointer;
-}
 
 .editarPerfilBotao {
     border: none;
@@ -591,6 +625,10 @@ main div h4 {
     display:flex;
     align-items: center;
     justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 2s;
 }
 
 .containerModalEditarPerfil {
@@ -682,7 +720,8 @@ main div h4 {
 }
 
 .offModalEditarPerfil {
-    display: none;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 @media screen and (min-width: 500px) {
@@ -815,10 +854,17 @@ main div h4 {
     .dropDownDisplay {
         margin-right: 150px;
     }
+    .dropDown2 {
+        margin-right: 150px;
+    }
 }
 
 @media screen and (min-width: 1366px) {
     .dropDownDisplay {
+        margin-right: 235px;
+    }
+
+    .dropDown2 {
         margin-right: 235px;
     }
 
@@ -832,7 +878,11 @@ main div h4 {
         margin-right: 17.500em;
     }
 
-    .divTarefas2 {
+    .dropDown2 {
+        margin-right: 17.500em;
+    }
+
+    .divTarefas {
         margin-top: 3.125em;
     }
 
@@ -843,9 +893,8 @@ main div h4 {
 
 .editar2{
     border: none;
-    background-color: white;
+    background-color: transparent;
     color: gray;
     font-weight: bold;
-    
-
+    cursor: pointer;   
 }

@@ -6,25 +6,22 @@ export class CriarTarefaRequisicao {
 
     static realizandoCadastro() {
         const buttonCriarTarefa = document.querySelector(".buttonCriarTarefa")
-        this.montandoModalSucess()
+        
 
         
         if(this.funcaoChamada === false) {
             buttonCriarTarefa.addEventListener("click", async (event) => {
                 event.preventDefault()
-                console.log(buttonCriarTarefa)
                 const dadosDoUsuario = this.montandoDadosFetch()
-                console.log(dadosDoUsuario)
                 const fetch = await this.realizandoFetch(dadosDoUsuario)
-                console.log(fetch)
+                this.montandoModalSucess()
                 if(fetch.habit_id) {
                     const modal = document.querySelector(".backgroundModalCriar")
-                    modal.classList.add("offModalCriar")
-    
+                    modal.classList.remove("offModalCriar")
+                    
                     const modalSucesso = document.querySelector(".backgroundModalCriarSucesso")
-                    modalSucesso.classList.remove("offModalCriarSucess")
+                    modalSucesso.classList.add("offModalCriarSucess")
     
-                    HabitosApi.listarHabitos()
                     const tituloTarefa    = document.querySelector(".backgroundModalCriar .tituloCriadoDaTarefa")
                     const descricaoTarefa = document.querySelector(".backgroundModalCriar .descricaoCriadaDaTarefa")
                     const categoriaTarefa = document.querySelector(".backgroundModalCriar .categoriaSelecionadaDaTarefa")
@@ -33,10 +30,23 @@ export class CriarTarefaRequisicao {
                     descricaoTarefa.value = ""
                     categoriaTarefa.value = ""
 
+                    tituloTarefa.removeAttribute("required")
+                    descricaoTarefa.removeAttribute("required")
+                    categoriaTarefa.style.border = "none"
+
+                    HabitosApi.listarHabitos()
                     this.removendoModalSucesso()
                 }
-                else {
-    
+                else {  
+                    const tituloTarefa    = document.querySelector(".backgroundModalCriar .tituloCriadoDaTarefa")
+                    const descricaoTarefa = document.querySelector(".backgroundModalCriar .descricaoCriadaDaTarefa")
+                    const categoriaTarefa = document.querySelector(".backgroundModalCriar .categoriaSelecionadaDaTarefa")
+
+                    tituloTarefa.required = "true"
+                    descricaoTarefa.required = "true"
+                    if(fetch.message === "habit_category obrigatório") {
+                        categoriaTarefa.style.border = "red 1px solid"
+                    }
                 }
             })
         }
@@ -78,7 +88,7 @@ export class CriarTarefaRequisicao {
 
         const divBackground = document.createElement("div")
         divBackground.classList.add("backgroundModalCriarSucesso")
-        divBackground.classList.add("offModalCriarSucess")
+        //divBackground.classList.add("offModalCriarSucess")
 
         const divContainer = document.createElement("div")
         divContainer.classList.add("containerModalCriarSucesso")
@@ -112,7 +122,7 @@ export class CriarTarefaRequisicao {
 
         body.addEventListener("click", () => {
             const modalSucesso = document.querySelector(".backgroundModalCriarSucesso")
-            modalSucesso.classList.add("offModalCriarSucess")
+            modalSucesso.classList.remove("offModalCriarSucess")
         })
     }
 }
