@@ -1,4 +1,5 @@
 import editarDeletarHabitoRequisicao from "./editarDeletarHabitoRequisicao.controller.js";
+import HabitosApi from "./listarHabitos.controller.js";
 import deletarHabitoModal from "./modalDeletarHabito.controller.js";
 
 export default class editarHabitoModal{
@@ -131,6 +132,10 @@ export default class editarHabitoModal{
                 }
             })
             await editarDeletarHabitoRequisicao.editar(habitos_id, dados)
+            const modalEditar = document.querySelector('.backgroundModalEditar')
+            modalEditar.classList.add('offModalEditar')
+
+            HabitosApi.listarHabitos()
         })
     }
     
