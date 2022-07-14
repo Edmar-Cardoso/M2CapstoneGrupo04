@@ -112,6 +112,7 @@ export class MontandoModalCriarTarefa {
         buttonFechar.addEventListener("click", () => {
             const modal = document.querySelector(".backgroundModalCriar")
             modal.classList.remove("offModalCriar")
+
         })
     }
 

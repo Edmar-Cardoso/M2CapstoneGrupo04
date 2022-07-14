@@ -1,4 +1,5 @@
 import editarDeletarHabitoRequisicao from "./editarDeletarHabitoRequisicao.controller.js";
+import HabitosApi from "./listarHabitos.controller.js";
 
 export default class deletarHabitoModal{
     static body = document.querySelector('body')
@@ -61,6 +62,13 @@ export default class deletarHabitoModal{
             const modalDeletar = document.querySelector('.backgroundModalDeletar')
             modalDeletar.classList.remove('offModalDeletar')
         })
+
+        const cancelarModal = document.querySelector('.botaoCancelar')
+
+        cancelarModal.addEventListener('click', () => {
+            const modalDeletar = document.querySelector('.backgroundModalDeletar')
+            modalDeletar.classList.remove('offModalDeletar')
+        })
     }
 
     static deletarHabito(habitos_id){
@@ -68,11 +76,13 @@ export default class deletarHabitoModal{
 
         botaoDeletar.addEventListener('click', async e => {
             e.preventDefault()
-            // console.log(habitos_id)
-            await editarDeletarHabitoRequisicao.deletar(habitos_id)
+            const fetch = await editarDeletarHabitoRequisicao.deletar(habitos_id)
+            console.log(fetch)
             const modalDeletar = document.querySelector('.backgroundModalDeletar')
-            modalDeletar.classList.add('offModalDeletar')
-            window.location.reload()
+            modalDeletar.classList.remove('offModalDeletar')
+            if(fetch.message === 'hábito deletado com sucesso'){
+                HabitosApi.listarHabitos()
+            }
         })
     }
 }

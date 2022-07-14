@@ -6,19 +6,18 @@ export default class editarDeletarHabitoRequisicao{
         Authorization: `Bearer ${this.token}`
         }
 
-    static async editar(habito_id, editarHabitoDados){
-        return await fetch(`${this.url}/${habito_id}`, {
+    static async editar(habitoId, editarHabitoDados){
+        return await fetch(`${this.url}/${habitoId}`, {
             method: "PATCH",
             headers: this.headers,
             body: JSON.stringify(editarHabitoDados)
         })
         .then(res => res.json())
-        .then(res => console.log(res))
         .catch(err => console.log(err))
     }
 
-    static async deletar(habito_id){
-        return await fetch(`${this.url}/${habito_id}`, {
+    static async deletar(habitoId){
+        return await fetch(`${this.url}/${habitoId}`, {
             method: "DELETE",
             headers: this.headers
         })

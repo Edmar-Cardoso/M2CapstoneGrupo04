@@ -5,6 +5,8 @@ import deletarHabitoModal from "./modalDeletarHabito.controller.js";
 export default class editarHabitoModal{
     static body = document.querySelector('body');
 
+    static funcaoChamada = false
+
     static editarModal(){
         const editarBackground          = document.createElement('div');
         const editarContainer           = document.createElement('div');
@@ -39,9 +41,9 @@ export default class editarHabitoModal{
         editarTopoDiv.className         = "headerModalEditar"
         editarTopoFechar.className      = "fecharModalEditar"
         editarFormDiv.className         = "bodyModalEditar"
-        editarTituloInput.className     = "tituloCriadoDaTarefa"
-        editarDescricaoInput.className  = "descricaoCriadaDaTarefa"
-        editarCategoriaSelect.className = "categoriaSelecionadaDaTarefa"
+        editarTituloInput.className     = "tituloEditadoDaTarefa"
+        editarDescricaoInput.className  = "descricaoEditadoDaTarefa"
+        editarCategoriaSelect.className = "categoriaEditadadaDaTarefa"
         editarBotoesDiv.className       = "editarBotoesDiv"
         editarBotoesExcluir.className   = "editarBotoesExcluir"
         editarBotoesSalvar.className    = "editarBotoesSalvar"
@@ -51,14 +53,19 @@ export default class editarHabitoModal{
         editarTitulo.innerText              = "Título"
         editarTituloInput.placeholder       = "Digitar título"
         editarTituloInput.type              = "text"
+        editarTituloInput.value             = " "
         editarTituloInput.name              = "habit_title"
+        editarTituloInput.required          = "true"
         editarDescricao.innerText           = "Descrição"
         editarDescricaoInput.placeholder    = "Digitar descrição"
         editarDescricaoInput.type           = "text"
         editarDescricaoInput.name           = "habit_description"
+        editarDescricaoInput.required       = "true"
+        editarDescricaoInput.value          = " "
         editarCategoriaSelect.name          = "habit_category"
+        editarCategoriaSelect.required      = "true"
         editarCategoriaSelecionar.innerText = "Selecionar categoria"
-        editarCategoriaSelecionar.value     = ""
+        editarCategoriaSelecionar.value     = " "
         editarCategoriaCasa.innerText       = "Casa"
         editarCategoriaCasa.value           = "casa"
         editarCategoriaEstudos.innerText    = "Estudos"
@@ -98,9 +105,13 @@ export default class editarHabitoModal{
                 const modalEditar = document.querySelector('.backgroundModalEditar');
                 modalEditar.classList.add("offModalEditar")
     
-                const habitos_id = e.target.closest('li').id
-                this.editarHabito(habitos_id)
-                this.deletarHabito(habitos_id)
+                const habitoId = e.target.closest('li').id
+                const teste = document.getElementById(habitoId).innerHTML
+                console.log(teste)
+                // const test2 = [...teste]
+                // console.log(test2)
+                this.editarHabito(habitoId)
+                this.deletarHabito(habitoId)
                 
                 deletarHabitoModal.deletarModal()
             })
@@ -119,38 +130,130 @@ export default class editarHabitoModal{
         })
     }
 
-    static editarHabito(habitos_id){
+    static editarHabitoDados(){
+
+        const editarTitulo = document.querySelector('.tituloEditadoDaTarefa').value
+        const editarDescricao = document.querySelector('.descricaoEditadoDaTarefa').value
+        const editarCategoria = document.querySelector('.categoriaEditadadaDaTarefa').value
+
+        return {
+            habit_title: editarTitulo,
+            habit_description: editarDescricao,
+            habit_category: editarCategoria
+        }
+    }
+
+    static editarHabito(habitoId){
         const editarBotoesSalvar = document.querySelector('.editarBotoesSalvar');
 
-        editarBotoesSalvar.addEventListener('click', async e => {
-            e.preventDefault()
-            const dados = {}
-            const valoresForm = [...e.target.form]
-            valoresForm.forEach(valor => {
-                if(valor.value !== ""){
-                    dados[valor.name] = valor.value
-                }
-            })
-            await editarDeletarHabitoRequisicao.editar(habitos_id, dados)
-            const modalEditar = document.querySelector('.backgroundModalEditar')
-            modalEditar.classList.add('offModalEditar')
+        console.log(this.funcaoChamada)
+        if(this.funcaoChamada === false){
+            editarBotoesSalvar.addEventListener('click', async e => {
+                e.preventDefault()
+                const dados = this.editarHabitoDados()
+                console.log(await editarDeletarHabitoRequisicao.editar(habitoId, dados))
+                const fetch = await editarDeletarHabitoRequisicao.editar(habitoId, dados)
+                this.montandoModalSucess()
+                console.log(fetch.habit_id)
+                if(fetch.habit_id){
+                    console.log(fetch.habit_id)
+                    const modalEditar = document.querySelector('.backgroundModalEditar')
+                    modalEditar.classList.remove('offModalEditar')
 
-            HabitosApi.listarHabitos()
-        })
+                    const modalSucesso = document.querySelector(".backgroundModalCriarSucesso")
+                    modalSucesso.classList.add('offModalCriarSucess')
+
+                    const editarTitulo = document.querySelector('.tituloEditadoDaTarefa')
+                    const editarDescricao = document.querySelector('.descricaoEditadoDaTarefa')
+                    const editarCategoria = document.querySelector('.categoriaEditadadaDaTarefa')
+
+                    editarTitulo.value = ""
+                    editarDescricao.value = ""
+                    editarCategoria.value = ""
+                    
+                    editarTitulo.removeAttribute("required")
+                    editarDescricao.removeAttribute("required")
+                    editarCategoria.style.border = "none"
+                
+                    HabitosApi.listarHabitos()
+                    this.removendoModalSucesso()
+                } else {
+                    const editarTitulo = document.querySelector('.tituloEditadoDaTarefa')
+                    const editarDescricao = document.querySelector('.descricaoEditadoDaTarefa')
+                    const editarCategoria = document.querySelector('.categoriaEditadadaDaTarefa')
+
+                    editarTitulo.required = "true"
+                    editarDescricao.required = "true"
+                    if(fetch.message === 'categorias aceitas: saude, estudos, casa, trabalho e lazer') {
+                        editarCategoria.style.border = "red 1px solid"
+                    }
+                }
+    
+                HabitosApi.listarHabitos()
+            })
+        }
+
+        this.funcaoChamada = true
     }
     
-    static deletarHabito(habitos_id){
+    static montandoModalSucess() {
+        const body = document.querySelector("body")
+
+        const divBackground = document.createElement("div")
+        divBackground.classList.add("backgroundModalCriarSucesso")
+        //divBackground.classList.add("offModalCriarSucess")
+
+        const divContainer = document.createElement("div")
+        divContainer.classList.add("containerModalCriarSucesso")
+
+        const divImg = document.createElement("div")
+        divImg.classList.add("imgSucessoModal")
+
+        const icone = document.createElement("i")
+        icone.classList.add("fa-solid")
+        icone.classList.add("fa-check")
+
+        const divMensagem = document.createElement("div")
+        divMensagem.classList.add("mensagemModalSucesso")
+
+        const h4 = document.createElement("h4")
+        h4.classList.add("TituloMensagemModalSucesso")
+        h4.innerText = "Sucesso!"
+
+        const p = document.createElement("p")
+        p.innerText = "Seu hábito foi editado"
+
+        divImg.append(icone)
+        divMensagem.append(h4, p)
+        divContainer.append(divImg, divMensagem)
+        divBackground.append(divContainer)
+        body.append(divBackground)
+
+        return body
+    }
+
+    static removendoModalSucesso() {
+        const body = document.querySelector("body")
+
+        body.addEventListener("click", () => {
+            const modalSucesso = document.querySelector(".backgroundModalCriarSucesso")
+            modalSucesso.classList.remove("offModalCriarSucess")
+        })
+    }
+
+    static deletarHabito(habitoId){
         const editarBotoesExcluir = document.querySelector('.editarBotoesExcluir');
 
         editarBotoesExcluir.addEventListener('click', e =>{
             e.preventDefault();
-            const modalEditar = document.querySelector('.backgroundModalEditar');
-            modalEditar.classList.add("offModalEditar")
+            console.log('tste')
+            const modalEditar = document.querySelector('.backgroundModalEditar')
+            modalEditar.classList.remove('offModalEditar')
 
             const modalDeletar = document.querySelector('.backgroundModalDeletar');
-            modalDeletar.classList.remove("offModalDeletar")
+            modalDeletar.classList.add("offModalDeletar")
 
-            deletarHabitoModal.deletarHabito(habitos_id)
+            deletarHabitoModal.deletarHabito(habitoId)
         })
     }
 }
