@@ -53,7 +53,6 @@ export default class editarHabitoModal{
         editarTitulo.innerText              = "Título"
         editarTituloInput.placeholder       = "Digitar título"
         editarTituloInput.type              = "text"
-        editarTituloInput.value             = " "
         editarTituloInput.name              = "habit_title"
         editarTituloInput.required          = "true"
         editarDescricao.innerText           = "Descrição"
@@ -61,11 +60,9 @@ export default class editarHabitoModal{
         editarDescricaoInput.type           = "text"
         editarDescricaoInput.name           = "habit_description"
         editarDescricaoInput.required       = "true"
-        editarDescricaoInput.value          = " "
         editarCategoriaSelect.name          = "habit_category"
         editarCategoriaSelect.required      = "true"
         editarCategoriaSelecionar.innerText = "Selecionar categoria"
-        editarCategoriaSelecionar.value     = " "
         editarCategoriaCasa.innerText       = "Casa"
         editarCategoriaCasa.value           = "casa"
         editarCategoriaEstudos.innerText    = "Estudos"
@@ -99,6 +96,9 @@ export default class editarHabitoModal{
     
     static abrirEditarModal(){
         const editarBotao = document.querySelectorAll('.editarBotao');
+        const editarTitulo = document.querySelector('.tituloEditadoDaTarefa')
+        const editarDescricao = document.querySelector('.descricaoEditadoDaTarefa')
+        const editarCategoria = document.querySelector('.categoriaEditadadaDaTarefa')
 
         for(let i=0; i<editarBotao.length; i++){
             editarBotao[i].addEventListener('click', (e) => {
@@ -106,10 +106,16 @@ export default class editarHabitoModal{
                 modalEditar.classList.add("offModalEditar")
     
                 const habitoId = e.target.closest('li').id
-                const teste = document.getElementById(habitoId).innerHTML
-                console.log(teste)
-                // const test2 = [...teste]
-                // console.log(test2)
+                const habitoLista = document.getElementById(habitoId)
+
+                const habitoListaTitulo = habitoLista.children[1].innerHTML
+                const habitoListaDescricao = habitoLista.children[2].innerHTML
+                const habitoListaCategoria = habitoLista.children[3].innerHTML
+
+                editarTitulo.value = habitoListaTitulo
+                editarDescricao.value = habitoListaDescricao
+                editarCategoria.value = habitoListaCategoria.toLowerCase()
+                
                 this.editarHabito(habitoId)
                 this.deletarHabito(habitoId)
                 
@@ -146,7 +152,6 @@ export default class editarHabitoModal{
     static editarHabito(habitoId){
         const editarBotoesSalvar = document.querySelector('.editarBotoesSalvar');
 
-        console.log(this.funcaoChamada)
         if(this.funcaoChamada === false){
             editarBotoesSalvar.addEventListener('click', async e => {
                 e.preventDefault()
