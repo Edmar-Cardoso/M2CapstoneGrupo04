@@ -6,7 +6,7 @@ export class MontandoModalCriarTarefa {
 
         const divBackground = document.createElement("div")
         divBackground.classList.add("backgroundModalCriar")
-        divBackground.classList.add("offModalCriar")
+        //divBackground.classList.add("offModalCriar")
 
         const divContainer = document.createElement("div")
         divContainer.classList.add("containerModalCriar")
@@ -98,7 +98,7 @@ export class MontandoModalCriarTarefa {
 
         button.addEventListener("click", () => {
             const modal = document.querySelector(".backgroundModalCriar")
-            modal.classList.remove("offModalCriar")
+            modal.classList.add("offModalCriar")
 
             this.fechandoModalCriarTarefa()
             CriarTarefaRequisicao.realizandoCadastro()
@@ -111,7 +111,7 @@ export class MontandoModalCriarTarefa {
 
         buttonFechar.addEventListener("click", () => {
             const modal = document.querySelector(".backgroundModalCriar")
-            modal.classList.add("offModalCriar")
+            modal.classList.remove("offModalCriar")
         })
     }
 

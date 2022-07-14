@@ -16,9 +16,7 @@ export default class LoginRequisicao{
                 localStorage.setItem("@kenzie-habit:token", JSON.stringify(res.token))
                 
                 return res
-            
             })
-            .then(res => console.log(res))
             .catch(err => console.log(err))
     }
 }

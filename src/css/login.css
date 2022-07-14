@@ -76,6 +76,7 @@
 .loginForm input:focus{
     outline: 2px solid #415AF3;
 }
+
 .loginEntrar{
     margin: 10px;
     padding: 10px;

@@ -25,22 +25,23 @@ export default class dadosUsuario {
 
 const dropDown = () => {
     const dropDown = document.querySelector(".dropDown2")
-    dropDown.style.display = ""
+    //dropDown.style.display = ""
     const divTarefas = document.querySelector(".divTarefas")
-    const message = document.querySelector(".message")
-    message.style.display = ""
+    //const message = document.querySelector(".message")
+    //message.style.display = ""
     
-    message.classList.add("message2")
+    //message.classList.add("message2")
     dropDown.classList.add("dropDownDisplay")
-    divTarefas.classList.add("divTarefas2")
+    //divTarefas.classList.add("divTarefas2")
 }
 
 const fechaDropDown = (e) => {
     const dropDown = document.querySelector(".dropDown2")
     const message = document.querySelector(".message")
 
-    message.style.display = "none"
-    dropDown.style.display = "none"
+    //message.style.display = "none"
+    //dropDown.style.display = "none"
+    dropDown.classList.remove("dropDownDisplay")
 }
 const x = document.querySelector(".x")
 
