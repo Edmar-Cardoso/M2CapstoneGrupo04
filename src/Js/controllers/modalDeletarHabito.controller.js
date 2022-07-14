@@ -16,7 +16,7 @@ export default class deletarHabitoModal{
         const deletarBotoesCancelar     = document.createElement('button');
         const deletarBotoesExcluir      = document.createElement('button');
 
-        deletarBackground.className     = "backgroundModalDeletar offModalDeletar"
+        deletarBackground.className     = "backgroundModalDeletar"
         deletarContainer.className      = "containerModalDeletar"
         deletarTopoDiv.className        = "headerModalDeletar"
         deletarTopoFechar.className     = "fecharDeletarModal"
@@ -40,7 +40,18 @@ export default class deletarHabitoModal{
 
         this.body.append(deletarBackground)
 
-        this.fecharModal()
+        this.abrirModalDeletar()
+    }
+
+    static abrirModalDeletar() {
+        const buttonAbrirModalDeletar = document.querySelector(".editarBotoesExcluir")
+
+        buttonAbrirModalDeletar.addEventListener("click", () => {
+            const modalDeletar = document.querySelector('.backgroundModalDeletar')
+            modalDeletar.classList.add('offModalDeletar')
+
+            this.fecharModal()
+        })
     }
 
     static fecharModal(){
@@ -48,7 +59,7 @@ export default class deletarHabitoModal{
 
         fecharModal.addEventListener('click', () => {
             const modalDeletar = document.querySelector('.backgroundModalDeletar')
-            modalDeletar.classList.add('offModalDeletar')
+            modalDeletar.classList.remove('offModalDeletar')
         })
     }
 
