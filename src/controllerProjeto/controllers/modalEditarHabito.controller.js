@@ -180,7 +180,8 @@ export default class editarHabitoModal{
                     editarDescricao.removeAttribute("required")
                     editarCategoria.style.border = "none"
                 
-                    HabitosApi.listarHabitos()
+                    // HabitosApi.listarHabitos()
+                    window.location.reload()
                     this.removendoModalSucesso()
                 } else {
                     const editarTitulo = document.querySelector('.tituloEditadoDaTarefa')

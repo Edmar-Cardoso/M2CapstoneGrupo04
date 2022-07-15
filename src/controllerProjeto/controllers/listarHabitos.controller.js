@@ -11,6 +11,7 @@ class HabitosApi{
         habitos.innerHTML = ""
 
         const habitosDoApi = await Requisicao.puxarDados();
+        habitosDoApi.sort((a,b) => b.habit_id - a.habit_id)
 
         habitosDoApi.forEach((habito) => {
             const habitosFinal  = new Habitos(habito.habit_id, habito.habit_title, habito.habit_description, habito.habit_category, habito.habit_status)
