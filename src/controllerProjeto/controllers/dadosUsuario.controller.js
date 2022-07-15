@@ -18,7 +18,11 @@ export default class dadosUsuario {
         botaoLogout.addEventListener("click", () => {
             localStorage.removeItem("@kenzie-habit:usuario")
             localStorage.removeItem("@kenzie-habit:token")
-            window.location.href = "/index.html"
+
+            document.body.classList.add("fadeout");
+            window.setTimeout(() => {
+                window.location.assign('../../index.html')
+            }, 2000)
         })
     }
 }

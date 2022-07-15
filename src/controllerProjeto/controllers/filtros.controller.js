@@ -26,7 +26,8 @@ class FiltrarTodos {
                 teste2.push(habito)
             }
         })
-
+        teste2.sort((a,b) => b.habit_id - a.habit_id)
+        
         teste2.forEach(habito => {
           const teste3 = new Habitos(habito.habit_id, habito.habit_title, habito.habit_description, habito.habit_category, habito.habit_status)
             
