@@ -81,7 +81,8 @@ export default class deletarHabitoModal{
             modalDeletar.classList.remove('offModalDeletar')
             await editarDeletarHabitoRequisicao.deletar(habitoId)
 
-            HabitosApi.listarHabitos()
+            // HabitosApi.listarHabitos()
+            window.location.reload()
         })
     }
 }
