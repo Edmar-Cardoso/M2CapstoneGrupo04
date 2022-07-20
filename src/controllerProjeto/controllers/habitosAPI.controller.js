@@ -26,8 +26,8 @@ class Requisicao{
         })
     }
 
-    static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTc2NDcwNDIsImV4cCI6MTY1ODI1MTg0Miwic3ViIjoiNjAifQ.g47K6HZaz8x2BJnf7im7clPS2CD5Q1naAj-L9JSNiVw"
-        
+    static token = JSON.parse(localStorage.getItem("@kenzie-habit:token"))
+            
     static headers = { "Content-Type": "application/json", 
         Authorization: `Bearer ${this.token}`
     }
