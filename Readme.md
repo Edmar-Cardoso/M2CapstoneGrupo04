@@ -17,21 +17,21 @@ O site não possui uma página de cadastro, pois o banco de dados é bem simples
 
 Login:
 
-<img src="./assets/img/login-desktop-caps.png" alt="Imagem da página de login no computador" width=650px>
+<img src="./src/assets/img/login-desktop-caps.png" alt="Imagem da página de login no computador" width=650px>
 
 HomePage:
 
-<img src="./assets/img/homepage-desktop-caps.png" alt="Imagem da página principal no computador" width=650px>
+<img src="./src/assets/img/homepage-desktop-caps.png" alt="Imagem da página principal no computador" width=650px>
 
 ### Mobile
 
 Login:
 
-<img src="./assets/img/login-mobile-caps.png" alt="Imagem da página de login no celular">
+<img src="./src/assets/img/login-mobile-caps.png" alt="Imagem da página de login no celular">
 
 HomePage:
 
-<img src="./assets/img/homepage-mobile-caps.png" alt="Imagem da página principal no celular">
+<img src="./src/assets/img/homepage-mobile-caps.png" alt="Imagem da página principal no celular">
 
 ##### Tecnologias usadas:
 
